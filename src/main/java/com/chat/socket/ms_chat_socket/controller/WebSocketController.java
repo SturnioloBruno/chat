@@ -12,6 +12,7 @@ public class WebSocketController {
     @MessageMapping("/chat/{roomId}")
     @SendTo("/topic/{roomId}")
     public ChatMessage chat(@DestinationVariable String roomId, ChatMessage message) {
+        System.out.println(message);
         return new ChatMessage(message.getMessage(), message.getUser());
     }
 }
